@@ -44,3 +44,15 @@ Even more points:
 11. Add authentication code to secure the API.
 
 
+# About the solution
+Minimal-API
+
+A functional API with some leve of test coverage using the new ASP.NET Core minimal APIs for hosting and HTTP APIs.
+The minimal API of .net6 was chosen for the solution of this challenge in order to bring modernity in the construction of API with low code cost to the programmer.
+During the project some challenges were found that were solved in palliative ways but will be described at the end of this document in "Future changes / Known issues"
+
+You can check instructions on how to create your own minimal API at [Minimal APIs overview](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0)
+
+
+
+

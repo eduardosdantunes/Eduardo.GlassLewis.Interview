@@ -59,6 +59,7 @@ You can check instructions on how to create your own minimal API at [Minimal API
 ## Requirements
 
 * If you want to perform debugging using microsoft visual studio you should follow these steps: [Install Visual Studio](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022)
+* If you want to perform debugging or executing commands using console you should follow these steps: [How to Install .NET 6](https://docs.microsoft.com/en-us/dotnet/core/install/) and download and install [.NET Download](https://dotnet.microsoft.com/en-us/download)
 * Get and install Docker following the documentation if needed in your environment: [Install Docker](https://docs.docker.com/get-docker/)
 * Get and install Docker Compose following the documentation if needed in your environment: [Install docker-compose](https://docs.docker.com/engine/install/)
 * The application will use ports 90 and 443 for the address 127.0.0.1 (localhost), so leave these ports free. 
@@ -69,4 +70,60 @@ You can check instructions on how to create your own minimal API at [Minimal API
 
   If you have doubts about the changes to the files, consult the manufacturer's documentation for [Docker reference](https://docs.docker.com/engine/reference/builder/) or for [docker-compose reference](https://docs.docker.com/compose/compose-file/)
   
+## Steps to run
+
+0. Download the project to your machine and go to the root path from this solution.
+
+1. Build docker-compose and name the project "entreviewapi" by running the following command:
+```sh
+docker-compose -f docker-compose.yml -f docker-compose.override.yml -p interviewapi build
+```
+
+2. Execute the follwing command to put the project on the air.
+```sh
+docker-compose -p interviewapi up
+```
+
+3. Access your browser in the following URL: [My Running Application](https://localhost/swagger)
+
+
+## Useful information
+
+This solution will up TWO containers:
+* Minimal API Application (It will be running on localhost on port 443 by default)
+* Database (It will be running on localhost on port 5050 by default)
+
+If you want to access the database and check the design table applied to the exercise, just connect to the database using the username and password as shown in the image below:
+
+* default user: sa
+* default password: YourStrong@Passw0rd
   
+![image](https://user-images.githubusercontent.com/105398346/168388712-de5cac12-f134-4835-b25a-e70f69665e07.png)
+
+You will also be able to access the database script that is stored in the db folder at the root of the project with the name [script.sql](https://github.com/eduardosdantunes/Eduardo.GlassLewis.Interview/blob/main/db/script.sql)
+
+# Future changes / Known issues
+
+## Improved ISIN field validation
+
+Studying the correct implementation of ISIN, I believe that this can be improved and explored through code validations that would not only check the amount of characters and strings starting with 2 letters but also with the check digit.
+
+[How Does the ISIN Numbering System Work?](https://www.investopedia.com/ask/answers/06/isinnumberingsystem.asp)
+
+
+## API filter application on ISIN query endpoint
+
+.NET 6 doesn't have filter feature yet but it is coming soon. With that, the endpoint
+```sh
+/api/v1/companies/isin/{isin}
+```
+Was implemented in this way as a Workaround knowing that the correct way would be through the implementation of filter in the get of the endpoint 
+```sh
+/api/v1/companies/isin/{isin}
+```
+
+Here are articles that commenting on what's to come in .NET7 contemplating API Filters andwTwo open issues for the implementation of Filters in APIs:
+
+* [.NET7 preview with API Filters](https://visualstudiomagazine.com/articles/2022/04/18/aspnetcore-net-7-preview-3.aspx)
+* [.NET github API Filter issue 1](https://github.com/dotnet/aspnetcore/issues/37853)
+* [.NET github API Filter issue 2](https://github.com/dotnet/aspnetcore/issues/40506)

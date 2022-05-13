@@ -69,4 +69,36 @@ You can check instructions on how to create your own minimal API at [Minimal API
 
   If you have doubts about the changes to the files, consult the manufacturer's documentation for [Docker reference](https://docs.docker.com/engine/reference/builder/) or for [docker-compose reference](https://docs.docker.com/compose/compose-file/)
   
+## Steps to run
+
+0. Download the project to your machine and go to the root path from this solution.
+
+1. Build docker-compose and name the project "entreviewapi" by running the following command:
+```sh
+docker-compose -f docker-compose.yml -f docker-compose.override.yml -p interviewapi build
+```
+
+2. Execute the follwing command to put the project on the air.
+```sh
+docker-compose -p interviewapi up
+```
+
+3. Access your browser in the following URL: [My Running Application](https://localhost/swagger)
+
+
+## Useful information
+
+This solution will up TWO containers:
+* Minimal API Application (It will be running on localhost on port 443 by default)
+* Database (It will be running on localhost on port 5050 by default)
+
+If you want to access the database and check the design table applied to the exercise, just connect to the database using the username and password as shown in the image below:
+
+* default user: sa
+* default password: YourStrong@Passw0rd
   
+![image](https://user-images.githubusercontent.com/105398346/168388712-de5cac12-f134-4835-b25a-e70f69665e07.png)
+
+You will also be able to access the database script that is stored in the db folder at the root of the project with the name [script.sql](https://github.com/eduardosdantunes/Eduardo.GlassLewis.Interview/blob/main/db/script.sql)
+
+# Future changes / Known issues

@@ -7,9 +7,12 @@ Design and code a Web API solution in .NET Core/5+ and C# for a middle tier “C
 
 Using this WebAPI, an end user should be able to:
  
-1. Create a Company record specifying the Name, Stock Ticker, Exchange, ISIN, and optionally a website URL. 
-  1. a. You are not allowed create two Companies with the same ISIN. 
-  1. b. The first two characters of an ISIN must be letters / non numeric.
+1. Create a Company record specifying the Name, Stock Ticker, Exchange, ISIN, and optionally a website URL.
+ 
+   a. You are not allowed create two Companies with the same ISIN.
+  
+   b. The first two characters of an ISIN must be letters / non numeric.
+ 
 2. Retrieve an existing Company by Id
 3. Retrieve a Company by ISIN
 4. Retrieve a collection of all Companies
@@ -33,9 +36,11 @@ Sample company records:
 9. If any additional steps are required to deploy or get the application running these should be documented very clearly.
 
 Bonus points:
+
 10. Provide a very simple client to call the API and present the results in a browser using any client-side web technology you like.
 
 Even more points:
+
 11. Add authentication code to secure the API.
 
 

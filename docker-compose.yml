@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: src/Interview.Api/Dockerfile
+    depends_on:
+      - "mssql-test-data"
 
   mssql-test-data:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -15,4 +17,3 @@ services:
     environment:
         ACCEPT_EULA: "Y"
         SA_PASSWORD: "YourStrong@Passw0rd"
-

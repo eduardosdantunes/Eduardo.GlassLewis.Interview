@@ -8,5 +8,7 @@ namespace Interview.Domain.Interfaces
         Task<Company?> FindByIdAsync(int id, CancellationToken cancellationToken);
         Task<Company?> FindByIsinAsync(string isin, CancellationToken cancellation);
         IAsyncEnumerable<Company> GetAllCompanies(CancellationToken cancellation);
+        Task<Company?> SaveChangesAsync(int id, Company company, CancellationToken cancellationToken);
+
     }
 }

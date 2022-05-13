@@ -36,5 +36,31 @@ namespace Interview.Infrastructure
         {
             return _context.Companies.AsAsyncEnumerable();
         }
+
+        public async Task<Company?> SaveChangesAsync(int id, Company company, CancellationToken cancellationToken)
+        {
+            var result = await _context.Companies.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+            if (result != null)
+            {
+
+                if (company.Name != null)
+                    result.Name = company.Name;
+                if (company.Exchange != null)
+                    result.Exchange = company.Exchange;
+                if (company.Ticker != null)
+                    result.Ticker = company.Ticker;
+                if (company.Isin != null)
+                    result.Isin = company.Isin; 
+                result.WebSite = company.WebSite;
+
+                _context.Companies.Update(result);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                return result;
+            }
+
+            return result;
+        }
     }
 }

@@ -25,7 +25,7 @@ await app.Services.EnsureCreated();
 app.MapPost("/api/v1/companies", async (ICompanyRepository repository, CompanyModel model, CancellationToken cancellation) =>
 {
     var isin = new CompanyIsin(model.Isin);
-    var company = new Company(model.Name, model.Exchange, model.Ticker, isin);
+    var company = new Company(model.Name, model.Exchange, model.Ticker, isin, model.WebSite);
     var result = await repository.CreateCompanyAsync(company, cancellation);
 
     return Results.CreatedAtRoute("GetCompanyById", new { result.Id });
@@ -51,5 +51,15 @@ app.MapGet("/api/v1/companies", (ICompanyRepository repository, CancellationToke
     return Results.Ok(result);
 
 }).WithName("GetCompanies");
+
+app.MapPut("/api/v1/companies/{id}", async (ICompanyRepository repository, int id, CompanyModel model, CancellationToken cancellation) =>
+{
+    var isin = new CompanyIsin(model.Isin);
+    var company = new Company(model.Name, model.Exchange, model.Ticker, isin, model.WebSite);
+    var result = await repository.SaveChangesAsync(id, company, cancellation);
+
+    return result == null ? Results.NotFound() : Results.Ok(company);
+
+}).WithName("ChangeCompany");
 
 app.Run();

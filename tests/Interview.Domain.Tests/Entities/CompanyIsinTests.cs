@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using FluentAssertions;
 using Interview.Domain.Entities;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Interview.Domain.Tests.Entities;
@@ -23,14 +24,12 @@ public class CompanyTests
         var isin = new CompanyIsin("US45256BAD38");
 
         var company = new Company(name, exchange, ticker, isin);
-
     }
 }
 
 public class CompanyIsinTests
 {
     [Theory]
-    [InlineData(null)]
     [InlineData("")]
     [InlineData(" ")]
     [InlineData("BR")]
@@ -42,13 +41,36 @@ public class CompanyIsinTests
     public void ThrowExceptionWhenIsinIsInvalid(string isinInput)
     {
         // Arrange
-        var isin = new CompanyIsin(isinInput);
+        var task = Task.Run(() =>
+        {
+            var isin = new CompanyIsin(isinInput);
+        });
 
         // Act
-        var exception = Record.Exception(() => isin.SetIsin(isinInput));
+        var taskException = Record.ExceptionAsync(async () => await task);
 
         // Assert
-        exception.Should().NotBeNull();
+        taskException.Should().NotBeNull();
+        taskException.Result.Should().NotBeNull();
+        taskException.Result.Message.Should().Contain("invalid isin");
+    }
+
+    [Fact]
+    public void ThrowExceptionWhenIsinIsNull()
+    {
+        // Arrange
+        var task = Task.Run(() =>
+        {
+            var isin = new CompanyIsin(null);
+        });
+
+        // Act
+        var taskException = Record.ExceptionAsync(async () => await task);
+
+
+        // Assert
+        taskException.Result.Should().NotBeNull();
+
     }
 
     [Theory]

@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  interview.api:
+    image: ${DOCKER_REGISTRY-}interviewapi
+    build:
+      context: .
+      dockerfile: src/Interview.Api/Dockerfile
+
+  mssql-test-data:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    hostname: interview-db
+    ports:
+      - "5050:1433"
+    environment:
+        ACCEPT_EULA: "Y"
+        SA_PASSWORD: "YourStrong@Passw0rd"
+

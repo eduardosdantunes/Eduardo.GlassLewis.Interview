@@ -59,6 +59,7 @@ You can check instructions on how to create your own minimal API at [Minimal API
 ## Requirements
 
 * If you want to perform debugging using microsoft visual studio you should follow these steps: [Install Visual Studio](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022)
+* If you want to perform debugging or executing commands using console you should follow these steps: [How to Install .NET 6](https://docs.microsoft.com/en-us/dotnet/core/install/) and download and install [.NET Download](https://dotnet.microsoft.com/en-us/download)
 * Get and install Docker following the documentation if needed in your environment: [Install Docker](https://docs.docker.com/get-docker/)
 * Get and install Docker Compose following the documentation if needed in your environment: [Install docker-compose](https://docs.docker.com/engine/install/)
 * The application will use ports 90 and 443 for the address 127.0.0.1 (localhost), so leave these ports free. 
@@ -102,3 +103,27 @@ If you want to access the database and check the design table applied to the exe
 You will also be able to access the database script that is stored in the db folder at the root of the project with the name [script.sql](https://github.com/eduardosdantunes/Eduardo.GlassLewis.Interview/blob/main/db/script.sql)
 
 # Future changes / Known issues
+
+## Improved ISIN field validation
+
+Studying the correct implementation of ISIN, I believe that this can be improved and explored through code validations that would not only check the amount of characters and strings starting with 2 letters but also with the check digit.
+
+[How Does the ISIN Numbering System Work?](https://www.investopedia.com/ask/answers/06/isinnumberingsystem.asp)
+
+
+## API filter application on ISIN query endpoint
+
+.NET 6 doesn't have filter feature yet but it is coming soon. With that, the endpoint
+```sh
+/api/v1/companies/isin/{isin}
+```
+Was implemented in this way as a Workaround knowing that the correct way would be through the implementation of filter in the get of the endpoint 
+```sh
+/api/v1/companies/isin/{isin}
+```
+
+Here are articles that commenting on what's to come in .NET7 contemplating API Filters andwTwo open issues for the implementation of Filters in APIs:
+
+* [.NET7 preview with API Filters](https://visualstudiomagazine.com/articles/2022/04/18/aspnetcore-net-7-preview-3.aspx)
+* [.NET github API Filter issue 1](https://github.com/dotnet/aspnetcore/issues/37853)
+* [.NET github API Filter issue 2](https://github.com/dotnet/aspnetcore/issues/40506)

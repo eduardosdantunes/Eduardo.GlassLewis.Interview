@@ -2,6 +2,7 @@
 .Net6 - Minimal API - GlassLewis Interview
 
 ---------------------------------------------------------------------------------------------------------------------------------------
+# Challenge
 
 Design and code a Web API solution in .NET Core/5+ and C# for a middle tier “Company API.”
 
@@ -53,6 +54,19 @@ During the project some challenges were found that were solved in palliative way
 
 You can check instructions on how to create your own minimal API at [Minimal APIs overview](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0)
 
+# Get Started
 
+## Requirements
 
+* If you want to perform debugging using microsoft visual studio you should follow these steps: [Install Visual Studio](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022)
+* Get and install Docker following the documentation if needed in your environment: [Install Docker](https://docs.docker.com/get-docker/)
+* Get and install Docker Compose following the documentation if needed in your environment: [Install docker-compose](https://docs.docker.com/engine/install/)
+* The application will use ports 90 and 443 for the address 127.0.0.1 (localhost), so leave these ports free. 
+  Not forgetting also port 5050 on which the database will be live. If necessary, make changes to these ports in the files:
+  * Dofickerfile
+  * docker-compose.yml
+  * docker-compose.override.yml
 
+  If you have doubts about the changes to the files, consult the manufacturer's documentation for [Docker reference](https://docs.docker.com/engine/reference/builder/) or for [docker-compose reference](https://docs.docker.com/compose/compose-file/)
+  
+  

@@ -156,8 +156,19 @@ It is true that the application would have to have more integrated tests to guar
 
 Here are some used documentation related to this project:
 
-Microsoft Minimal API Documentation - Documentation sources: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0
-Entity Framework Core - Documentation sources: https://docs.microsoft.com/en-us/ef/core/
-MinimalApiCrud - https://github.com/diegostan/MinimalApiCrud
-A complete and functional Minimal API using .NET 6 - https://github.com/EduardoPires/Minimal-API/
+* Microsoft Minimal API Documentation
+
+   https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0
+
+* Entity Framework Core
+
+   https://docs.microsoft.com/en-us/ef/core/
+
+* MinimalApiCrud
+
+   https://github.com/diegostan/MinimalApiCrud
+
+* A complete and functional Minimal API using .NET 6
+
+   https://github.com/EduardoPires/Minimal-API/
 

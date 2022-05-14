@@ -150,3 +150,14 @@ Here are articles that commenting on what's to come in .NET7 contemplating API F
 ## Create integrated tests
 
 It is true that the application would have to have more integrated tests to guarantee the quality at the time of API calls, cruds in the database, among other integrations that can be applied.
+
+
+# Related and Reference projects
+
+Here are some used documentation related to this project:
+
+Microsoft Minimal API Documentation - Documentation sources: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0
+Entity Framework Core - Documentation sources: https://docs.microsoft.com/en-us/ef/core/
+MinimalApiCrud - https://github.com/diegostan/MinimalApiCrud
+A complete and functional Minimal API using .NET 6 - https://github.com/EduardoPires/Minimal-API/
+

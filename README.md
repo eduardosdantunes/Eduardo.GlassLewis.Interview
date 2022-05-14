@@ -97,7 +97,7 @@ Just follow the steps in the image below:
 2. Install at least the .NET6 SDK described in "requirements", go to the desired tests directory (Example: "./tests/Interview.Domain.Tests") and run the following command in the console.
 
 ```sh
-docker-compose -p interviewapi up
+donet test
 ```
 
 You should get the following result 

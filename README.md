@@ -86,6 +86,25 @@ docker-compose -p interviewapi up
 
 3. Access your browser in the following URL: [My Running Application](https://localhost/swagger)
 
+## Steps to test
+
+1. (Easy Method) If you have Microsoft Visual Studio installed:
+Just follow the steps in the image below:
+
+![image](https://user-images.githubusercontent.com/105398346/168405542-3720e12b-112a-4686-912d-c8ef90e238e4.png)
+
+
+2. Install at least the .NET6 SDK described in "requirements", go to the desired tests directory (Example: "./tests/Interview.Domain.Tests") and run the following command in the console.
+
+```sh
+docker-compose -p interviewapi up
+```
+
+You should get the following result 
+
+![image](https://user-images.githubusercontent.com/105398346/168405613-a25c5d4c-bcc5-42f3-867f-89694f3ca438.png)
+
+
 
 ## Useful information
 
@@ -127,3 +146,7 @@ Here are articles that commenting on what's to come in .NET7 contemplating API F
 * [.NET7 preview with API Filters](https://visualstudiomagazine.com/articles/2022/04/18/aspnetcore-net-7-preview-3.aspx)
 * [.NET github API Filter issue 1](https://github.com/dotnet/aspnetcore/issues/37853)
 * [.NET github API Filter issue 2](https://github.com/dotnet/aspnetcore/issues/40506)
+
+## Create integrated tests
+
+It is true that the application would have to have more integrated tests to guarantee the quality at the time of API calls, cruds in the database, among other integrations that can be applied.

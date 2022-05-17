@@ -19,7 +19,32 @@ namespace Interview.Infrastructure.Tests
         }
 
         [Fact]
-        public async Task PostCompany()
+        public async Task ValidatingGetCompany()
+        {
+            // Arrange
+            var builder = new DbContextOptionsBuilder<InterviewContext>().UseInMemoryDatabase(Guid.NewGuid().ToString());
+            var context = new InterviewContext(builder.Options);
+
+            var service = new CompanyRepository(context);
+
+            var name = _fixture.Create<string>();
+            var exchange = _fixture.Create<string>();
+            var ticker = _fixture.Create<string>();
+            var isin = new CompanyIsin("US45256BAD38");
+
+            var company = new Company(name, exchange, ticker, isin);
+
+            // Act
+            await service.CreateCompanyAsync(company, CancellationToken.None);
+            var result = await service.FindByIdAsync(1, CancellationToken.None);
+
+            //Assert
+            result.Should().Be(company);
+
+        }
+
+        [Fact]
+        public async Task ValidatingPostCompany()
         {
             // Arrange
             var builder = new DbContextOptionsBuilder<InterviewContext>().UseInMemoryDatabase(Guid.NewGuid().ToString());

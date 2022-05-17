@@ -158,6 +158,14 @@ It is true that the application would have to have more integrated tests to guar
 
 - [ ] DONE
 
+## Provide a very simple client to call the API and present the results in a browser using any client-side web technology you like
+
+- [ ] DONE
+
+## Add authentication code to secure the API
+
+- [ ] DONE
+
 # Related and Reference projects
 
 Here are some used documentation related to this project:

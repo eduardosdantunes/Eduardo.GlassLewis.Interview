@@ -19,31 +19,6 @@ namespace Interview.Infrastructure.Tests
         }
 
         [Fact]
-        public async Task ValidatingGetCompany()
-        {
-            // Arrange
-            var builder = new DbContextOptionsBuilder<InterviewContext>().UseInMemoryDatabase(Guid.NewGuid().ToString());
-            var context = new InterviewContext(builder.Options);
-
-            var service = new CompanyRepository(context);
-
-            var name = _fixture.Create<string>();
-            var exchange = _fixture.Create<string>();
-            var ticker = _fixture.Create<string>();
-            var isin = new CompanyIsin("US45256BAD38");
-
-            var company = new Company(name, exchange, ticker, isin);
-
-            // Act
-            await service.CreateCompanyAsync(company, CancellationToken.None);
-            var result = await service.FindByIdAsync(1, CancellationToken.None);
-
-            //Assert
-            result.Should().Be(company);
-
-        }
-
-        [Fact]
         public async Task ValidatingPostCompany()
         {
             // Arrange
@@ -70,6 +45,56 @@ namespace Interview.Infrastructure.Tests
         }
 
         [Fact]
+        public async Task ValidatingGetCompany()
+        {
+            // Arrange
+            var builder = new DbContextOptionsBuilder<InterviewContext>().UseInMemoryDatabase(Guid.NewGuid().ToString());
+            var context = new InterviewContext(builder.Options);
+
+            var service = new CompanyRepository(context);
+
+            var name = _fixture.Create<string>();
+            var exchange = _fixture.Create<string>();
+            var ticker = _fixture.Create<string>();
+            var isin = new CompanyIsin("US45256BAD38");
+
+            var company = new Company(name, exchange, ticker, isin);
+
+            // Act
+            await service.CreateCompanyAsync(company, CancellationToken.None);
+            var result = await service.FindByIdAsync(1, CancellationToken.None);
+
+            //Assert
+            result.Should().Be(company);
+
+        }
+
+        [Fact]
+        public async Task ValidatingGetCompanyByIsin()
+        {
+            // Arrange
+            var builder = new DbContextOptionsBuilder<InterviewContext>().UseInMemoryDatabase(Guid.NewGuid().ToString());
+            var context = new InterviewContext(builder.Options);
+
+            var service = new CompanyRepository(context);
+
+            var name = _fixture.Create<string>();
+            var exchange = _fixture.Create<string>();
+            var ticker = _fixture.Create<string>();
+            var isin = new CompanyIsin("US45256BAD38");
+
+            var company = new Company(name, exchange, ticker, isin);
+
+            // Act
+            await service.CreateCompanyAsync(company, CancellationToken.None);
+            var result = await service.FindByIsinAsync("US45256BAD38", CancellationToken.None);
+
+            //Assert
+            result.Should().Be(company);
+
+        }
+
+        [Fact]
         public async Task ValidatingGetCompanies()
         {
             // Arrange
@@ -89,15 +114,45 @@ namespace Interview.Infrastructure.Tests
             await service.CreateCompanyAsync(company1, CancellationToken.None);
             await service.CreateCompanyAsync(company2, CancellationToken.None);
 
-            // Act
             var exception = await Record.ExceptionAsync(async () =>
             {
-                service.GetAllCompanies(CancellationToken.None);
+                var exception = service.GetAllCompanies(CancellationToken.None);
             });
 
             //Assert
             exception.Should().BeNull();
 
+        }
+
+        [Fact]
+        public async Task ValidatingPutCompany()
+        {
+            // Arrange
+            var builder = new DbContextOptionsBuilder<InterviewContext>().UseInMemoryDatabase(Guid.NewGuid().ToString());
+            var context = new InterviewContext(builder.Options);
+
+            var service = new CompanyRepository(context);
+
+            var name = _fixture.Create<string>();
+            var exchange = _fixture.Create<string>();
+            var ticker = _fixture.Create<string>();
+
+            var company1 = new Company(name, exchange, ticker, new CompanyIsin("US45256BAD38"));
+            var company2 = new Company(name, exchange, ticker, new CompanyIsin("US1104193065"));
+
+            // Act
+            await service.CreateCompanyAsync(company1, CancellationToken.None);
+
+            var exception = await Record.ExceptionAsync(async () =>
+            {
+                await service.SaveChangesAsync(company1.Id, company2, CancellationToken.None);
+            });
+
+            var result = await service.FindByIdAsync(1, CancellationToken.None);            
+
+            //Assert
+            exception.Should().BeNull();
+            result.Isin.Should().Be(new CompanyIsin("US1104193065"));
         }
 
         [Fact]

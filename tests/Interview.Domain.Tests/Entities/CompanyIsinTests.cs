@@ -16,6 +16,8 @@ public class CompanyIsinTests
     [InlineData("ABCDEFDFGHIJ")]
     [InlineData("B71234567891")]
     [InlineData("771234567891")]
+    [InlineData("BR1234567891")]
+    [InlineData("US1234567891")]    
     public void ThrowExceptionWhenIsinIsInvalid(string isinInput)
     {
         // Arrange
@@ -52,8 +54,11 @@ public class CompanyIsinTests
     }
 
     [Theory]
-    [InlineData("US45256BAD38")]
-    [InlineData("BR1234567891")]
+    [InlineData("US0378331005")]
+    [InlineData("US1104193065")]
+    [InlineData("NL0000009165")]
+    [InlineData("JP3866800000")]
+    [InlineData("DE000PAH0038")]
     public void SetValidIsin(string isinInput)
     {
         // Arrange
@@ -65,4 +70,5 @@ public class CompanyIsinTests
         // Assert
         exception.Should().BeNull();
     }
+
 }

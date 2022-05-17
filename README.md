@@ -129,8 +129,11 @@ Studying the correct implementation of ISIN, I believe that this can be improved
 
 [How Does the ISIN Numbering System Work?](https://www.investopedia.com/ask/answers/06/isinnumberingsystem.asp)
 
+Solved using PR [Commit - ISIN field validation](https://github.com/eduardosdantunes/Eduardo.GlassLewis.Interview/commit/dcb6038bf689c41830fc2d1c48880e5a1ca714ff)
 
-## API filter application on ISIN query endpoint
+- [x] DONE
+
+## - API filter application on ISIN query endpoint 
 
 .NET 6 doesn't have filter feature yet but it is coming soon. With that, the endpoint
 ```sh
@@ -147,10 +150,13 @@ Here are articles that commenting on what's to come in .NET7 contemplating API F
 * [.NET github API Filter issue 1](https://github.com/dotnet/aspnetcore/issues/37853)
 * [.NET github API Filter issue 2](https://github.com/dotnet/aspnetcore/issues/40506)
 
+- [ ] DONE
+
 ## Create integrated tests
 
 It is true that the application would have to have more integrated tests to guarantee the quality at the time of API calls, cruds in the database, among other integrations that can be applied.
 
+- [ ] DONE
 
 # Related and Reference projects
 

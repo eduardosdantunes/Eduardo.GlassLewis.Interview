@@ -129,6 +129,7 @@ Studying the correct implementation of ISIN, I believe that this can be improved
 
 [How Does the ISIN Numbering System Work?](https://www.investopedia.com/ask/answers/06/isinnumberingsystem.asp)
 
+
 Solved using PR [Commit - ISIN field validation](https://github.com/eduardosdantunes/Eduardo.GlassLewis.Interview/commit/dcb6038bf689c41830fc2d1c48880e5a1ca714ff)
 
 - [x] DONE
@@ -156,7 +157,10 @@ Here are articles that commenting on what's to come in .NET7 contemplating API F
 
 It is true that the application would have to have more integrated tests to guarantee the quality at the time of API calls, cruds in the database, among other integrations that can be applied.
 
-- [ ] DONE
+
+Solved using PR [Commit - Minimum validation in CRUD](https://github.com/eduardosdantunes/Eduardo.GlassLewis.Interview/commit/f8fb42c31e01241ef52539901afe74c1ee3d2799)
+
+- [X] DONE (Added minimum validation in CRUD)
 
 ## Provide a very simple client to call the API and present the results in a browser using any client-side web technology you like
 

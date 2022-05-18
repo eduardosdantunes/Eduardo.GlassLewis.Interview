@@ -13,7 +13,9 @@ internal class InterviewContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+        modelBuilder.Entity<User>().HasData(new User { Id = 1, UserName = "admin", Password = "admin" });
     }
 
     public DbSet<Company> Companies { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 }

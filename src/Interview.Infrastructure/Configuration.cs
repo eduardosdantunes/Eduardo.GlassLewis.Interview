@@ -11,6 +11,7 @@ public static class Configuration
     {
         services.AddDbContext<InterviewContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("Default")));
         services.AddScoped<ICompanyRepository, CompanyRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         return services;
     }
 

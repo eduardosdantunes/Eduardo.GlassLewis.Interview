@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Domain", "src\Interview.Domain\Interview.Domain.csproj", "{5BE75E11-20F0-4D31-BE9B-386812D95F56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Domain", "src\Interview.Domain\Interview.Domain.csproj", "{5BE75E11-20F0-4D31-BE9B-386812D95F56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Domain.Tests", "tests\Interview.Domain.Tests\Interview.Domain.Tests.csproj", "{6EFF17A6-8757-4C2F-BC80-C45075C47C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Domain.Tests", "tests\Interview.Domain.Tests\Interview.Domain.Tests.csproj", "{6EFF17A6-8757-4C2F-BC80-C45075C47C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Infrastructure", "src\Interview.Infrastructure\Interview.Infrastructure.csproj", "{4318B954-14D5-4916-A461-0203B5D0C553}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Infrastructure", "src\Interview.Infrastructure\Interview.Infrastructure.csproj", "{4318B954-14D5-4916-A461-0203B5D0C553}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Services", "src\Interview.Services\Interview.Services.csproj", "{C214EF8D-6465-4513-B64B-CF6BC32CEA1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D18EE72E-B3C8-4D45-B3F6-1A4F42BD0346}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4B3BADE8-C9F7-4E8E-A7D9-824C1086C7BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Infrastructure.Tests", "tests\Interview.Infrastructure.Tests\Interview.Infrastructure.Tests.csproj", "{65F7FBC4-D3C2-42C5-A1E1-0A907A134511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Infrastructure.Tests", "tests\Interview.Infrastructure.Tests\Interview.Infrastructure.Tests.csproj", "{65F7FBC4-D3C2-42C5-A1E1-0A907A134511}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Api", "src\Interview.Api\Interview.Api.csproj", "{81450644-1B1E-469C-813E-75388D078ACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Api", "src\Interview.Api\Interview.Api.csproj", "{81450644-1B1E-469C-813E-75388D078ACE}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{69B02920-B063-4E42-A624-7FF9CF966184}"
 EndProject
@@ -49,6 +51,10 @@ Global
 		{69B02920-B063-4E42-A624-7FF9CF966184}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69B02920-B063-4E42-A624-7FF9CF966184}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69B02920-B063-4E42-A624-7FF9CF966184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C214EF8D-6465-4513-B64B-CF6BC32CEA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C214EF8D-6465-4513-B64B-CF6BC32CEA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C214EF8D-6465-4513-B64B-CF6BC32CEA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C214EF8D-6465-4513-B64B-CF6BC32CEA1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{4318B954-14D5-4916-A461-0203B5D0C553} = {D18EE72E-B3C8-4D45-B3F6-1A4F42BD0346}
 		{65F7FBC4-D3C2-42C5-A1E1-0A907A134511} = {4B3BADE8-C9F7-4E8E-A7D9-824C1086C7BC}
 		{81450644-1B1E-469C-813E-75388D078ACE} = {D18EE72E-B3C8-4D45-B3F6-1A4F42BD0346}
+		{C214EF8D-6465-4513-B64B-CF6BC32CEA1E} = {D18EE72E-B3C8-4D45-B3F6-1A4F42BD0346}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AAF9672D-A938-4485-A425-AC780D5F9138}
